@@ -5,7 +5,6 @@ import 'package:arcade_motoru/atis.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const okculukId = 'oyun-okculuk';
 
@@ -88,7 +87,7 @@ final okculukConfig = GameConfig(
   rules: okculukRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => okculukRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => okculukRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintShot(c, s, p, t);
